@@ -1,0 +1,21 @@
+{
+    "app_id": 108600,
+    "published_file_id": "3653490664",
+    "owner_steamid64": "76561198033176898",
+    "workshop_root": "MOD/MinidoracatSafeSpawn",
+    "mod_info": "MOD/MinidoracatSafeSpawn/Contents/mods/MinidoracatSafeSpawn/42/mod.info",
+    "preview_gif": "MOD/MinidoracatSafeSpawn/workshop/preview.gif",
+    "changelog": "STEAM_CHANGELOG.md",
+    "descriptions": {
+        "english": "STEAM_DESCRIPTION_EN.md",
+        "tchinese": "STEAM_DESCRIPTION.md",
+        "schinese": "STEAM_DESCRIPTION.md",
+        "japanese": "STEAM_DESCRIPTION_JP.md"
+    },
+    "titles": {
+        "english": "Minidoracat Safe Spawn for B42",
+        "tchinese": "[B42] Minidoracat 安全重生保護 Safe Spawn",
+        "schinese": "[B42] Minidoracat 安全重生保护 Safe Spawn",
+        "japanese": "[B42] Minidoracat セーフスポーン Safe Spawn"
+    }
+}

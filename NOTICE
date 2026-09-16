@@ -1,0 +1,59 @@
+NOTICE — 授權範圍與第三方權利
+==============================
+
+本檔說明 LICENSE（MIT）實際覆蓋的範圍，以及不受 MIT 覆蓋的第三方內容。
+MIT 條文本身不因本檔而變動；本檔只界定「哪些檔案是 Minidoracat 的著作」。
+
+
+1. MIT 覆蓋範圍（Minidoracat 自有著作）
+---------------------------------------
+
+- MOD 程式碼與資料定義
+  MOD/MinidoracatSafeSpawn/Contents/mods/MinidoracatSafeSpawn/**
+  （Lua、sandbox-options.txt、mod.info、Translate/**、AnimSets/actiongroups 佔位檔）
+- 開發與發布工具
+  scripts/**、PZ_Test.bat、Publish_Workshop.bat、link_workshop.bat
+- 專案文件
+  README.md、CHANGELOG.md、STEAM_CHANGELOG.md、STEAM_DESCRIPTION.md、
+  STEAM_DESCRIPTION_EN.md、STEAM_DESCRIPTION_JP.md、MOD/MinidoracatSafeSpawn/workshop.txt
+- 封面／海報視覺
+  MOD/MinidoracatSafeSpawn/preview.png
+  MOD/MinidoracatSafeSpawn/Contents/mods/MinidoracatSafeSpawn/42/poster.png
+  MOD/MinidoracatSafeSpawn/workshop/preview.gif
+  為 Minidoracat 自製的原創概念封面美術（AI 生成底圖 + 自行後製排版，
+  非遊戲截圖、非第三方素材），依作者持有之權利一併以 MIT 授權。
+
+scripts/ 下的 PZ_Test.ps1、PZ_Test_UI.ps1、link_workshop.ps1、sync_mod.ps1 是
+Minidoracat PZ MOD 家族共用腳本的同步副本（正本在家族 pz-family-docs），
+同屬 Minidoracat 自有著作，一併以 MIT 授權。
+
+
+2. 不受 MIT 覆蓋
+----------------
+
+2.1 Project Zomboid 本體
+    Project Zomboid、其引擎 API、既有遊戲素材與商標屬 The Indie Stone。
+    本專案僅呼叫其 Lua API，未重新散布遊戲檔案。
+    Steamworks API（steam_api64.dll）屬 Valve，不隨本專案散布；
+    scripts/publish_workshop.py 只在執行時載入本機既有的 DLL。
+
+2.2 移植來源：Steam Workshop id 2772690680「无敌2.0 GhostAfterDeath」
+    Workshop 頁面標示的作品擁有者為 Steam 帳號「多罗猫」
+    （steamcommunity.com/id/sarani）。本 MOD 的原始概念與機制設計移植自該作品；
+    MOD/.../media/lua/client/SafeSpawnMain.lua 檔頭載明
+    "Ported from GhostAfterDead by xk"（README 亦沿用「xk」此一署名，
+    與 Workshop 現行擁有者顯示名不一致，尚待釐清）。
+    該作品的 Workshop 說明、Discussions、Change Notes、全部留言以及本機
+    Workshop 檔案目錄中，均未找到任何可覆蓋再散布的授權聲明，因此：
+    - 本專案不對該上游作品的原始著作主張任何授權；
+    - MIT 僅就 Minidoracat 自有及改寫部分主張權利；
+    - 本乾淨版本不隨附經比對確認的上游原樣圖像與實質沿用文字檔。
+
+
+
+3. 致謝
+-------
+
+- Steam Workshop id 2772690680「无敌2.0 GhostAfterDeath」（擁有者：多罗猫）
+  —— 原始概念與實作來源。
+- The Indie Stone —— Project Zomboid 與其模組 API。

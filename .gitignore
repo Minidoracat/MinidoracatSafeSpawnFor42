@@ -1,0 +1,29 @@
+# ── 執行期 / 工具暫存產物（非 MOD 資產） ──
+temp/
+state/
+
+# ── oh-my-claudecode / OMX 工作流狀態與產物 ──
+.omc/
+.omx/
+.sisyphus/
+
+# ── AI 協作文件（僅本機使用，不入版控） ──
+AGENTS.md
+CLAUDE.md
+.agents/
+.claude/
+
+# ── OS / 編輯器雜物 ──
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+
+# ── 第三方本機對照資料與舊版上游檔案，不再納入版控 ──
+/upstream/
+/MOD/MinidoracatSafeSpawn/Contents/mods/MinidoracatSafeSpawn/42/media/ui/Traits/trait_ghost_time.png
+/MOD/MinidoracatSafeSpawn/Contents/mods/MinidoracatSafeSpawn/42/media/textures/Item_GhostTimeBook.png
+/MOD/MinidoracatSafeSpawn/Contents/mods/MinidoracatSafeSpawn/42/media/perks.txt
+/MOD/MinidoracatSafeSpawn/Contents/mods/MinidoracatSafeSpawn/42/media/scripts/SafeSpawnSkillItems.txt
+# 現行 poster.png／preview.png 為自製素材，繼續追蹤；不得換回舊上游封面。
+/scripts/__pycache__/

@@ -1,0 +1,8 @@
+name=Minidoracat Safe Spawn
+id=MinidoracatSafeSpawn
+author=Minidoracat
+description=Build 42 安全重生保護系統 <LINE> <LINE> 玩家登入/重生時獲得隱身保護，殭屍不會攻擊 <LINE> 管理員右鍵選單可即時切換隱形模式 <LINE> 所有功能可透過沙盒選項開關 <LINE> <LINE> 功能：登入保護、管理員工具、多人同步
+modversion=42.20.2-1.5.0
+versionMin=42.16.1
+category=Tweaks
+tags=Build 42;Multiplayer

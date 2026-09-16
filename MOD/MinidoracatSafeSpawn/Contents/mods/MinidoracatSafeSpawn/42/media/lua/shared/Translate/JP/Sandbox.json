@@ -1,0 +1,12 @@
+{
+    "Sandbox_MinidoracatSafeSpawn": "セーフスポーン保護",
+
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn": "ログイン保護を有効化",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "プレイヤーのログイン／リスポーン時に透明保護を有効にします",
+
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "既存キャラの透明時間",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "既存キャラクター（再ログイン）の透明保護時間。単位：秒（現実時間）",
+
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "新規キャラの透明時間",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "新規作成キャラクターの透明保護時間。単位：秒（現実時間）"
+}

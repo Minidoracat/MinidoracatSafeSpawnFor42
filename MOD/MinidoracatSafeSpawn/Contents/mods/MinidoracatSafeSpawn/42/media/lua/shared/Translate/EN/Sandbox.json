@@ -1,0 +1,12 @@
+{
+    "Sandbox_MinidoracatSafeSpawn": "Safe Spawn Protection",
+
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn": "Enable Ghost on Spawn",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Enable ghost protection when player spawns or respawns",
+
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Veteran Ghost Time",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Ghost time for veteran characters (relogging in) in seconds of REAL time",
+
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "New Character Ghost Time",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Ghost time for freshly created characters in seconds of REAL time"
+}

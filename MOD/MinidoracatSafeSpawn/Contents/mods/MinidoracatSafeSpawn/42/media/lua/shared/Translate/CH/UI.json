@@ -1,0 +1,10 @@
+{
+    "UI_ghost_time_count_down": "隱身保護: 剩餘 %1 秒",
+    "UI_over_ghost_time": "隱身保護已結束",
+    "UI_admin_menu_title": "SafeSpawn 管理工具",
+    "UI_admin_ghost_enable": "開啟隱形模式",
+    "UI_admin_ghost_disable": "關閉隱形模式",
+    "UI_admin_ghost_enabled": "隱形模式已開啟",
+    "UI_admin_ghost_disabled": "隱形模式已關閉",
+    "UI_admin_show_status": "顯示保護狀態"
+}

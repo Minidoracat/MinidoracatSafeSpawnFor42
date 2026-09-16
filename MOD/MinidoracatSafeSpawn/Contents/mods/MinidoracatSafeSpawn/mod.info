@@ -1,0 +1,8 @@
+name=Minidoracat Safe Spawn
+id=MinidoracatSafeSpawn
+author=Minidoracat
+description=Safe Spawn Protection for Build 42 - Ghost mode on spawn/respawn with admin tools
+modversion=42.20.2-1.5.0
+versionMin=42.16.1
+category=Tweaks
+tags=Build 42;Multiplayer

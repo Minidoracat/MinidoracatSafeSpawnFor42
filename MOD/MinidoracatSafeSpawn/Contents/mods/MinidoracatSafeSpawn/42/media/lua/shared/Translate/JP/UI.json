@@ -1,0 +1,10 @@
+{
+    "UI_ghost_time_count_down": "スポーン保護: 残り %1 秒",
+    "UI_over_ghost_time": "スポーン保護が終了しました",
+    "UI_admin_menu_title": "SafeSpawn 管理ツール",
+    "UI_admin_ghost_enable": "透明モードを有効化",
+    "UI_admin_ghost_disable": "透明モードを無効化",
+    "UI_admin_ghost_enabled": "透明モードを有効にしました",
+    "UI_admin_ghost_disabled": "透明モードを無効にしました",
+    "UI_admin_show_status": "保護状態を表示"
+}

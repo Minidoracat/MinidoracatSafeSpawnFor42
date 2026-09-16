@@ -1,0 +1,29 @@
+VERSION = 1,
+
+option MinidoracatSafeSpawn.EnableGhostOnSpawn
+{
+    type = boolean,
+    default = true,
+    page = MinidoracatSafeSpawn,
+    translation = MinidoracatSafeSpawn_EnableGhostOnSpawn,
+}
+
+option MinidoracatSafeSpawn.NormalGhostSeconds
+{
+    type = integer,
+    min = 1,
+    max = 600,
+    default = 30,
+    page = MinidoracatSafeSpawn,
+    translation = MinidoracatSafeSpawn_NormalGhostSeconds,
+}
+
+option MinidoracatSafeSpawn.NewStartSeconds
+{
+    type = integer,
+    min = 1,
+    max = 600,
+    default = 60,
+    page = MinidoracatSafeSpawn,
+    translation = MinidoracatSafeSpawn_NewStartSeconds,
+}

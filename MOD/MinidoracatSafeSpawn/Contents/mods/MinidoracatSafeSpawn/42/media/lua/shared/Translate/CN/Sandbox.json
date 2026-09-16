@@ -1,0 +1,12 @@
+{
+    "Sandbox_MinidoracatSafeSpawn": "安全重生保护",
+
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn": "启用登入保护",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "玩家登入或重生时启用无敌保护",
+
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "旧角色无敌时间",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "旧角色（重新登录）的隐身保护时间，单位：秒（现实时间）",
+
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "新角色无敌时间",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "新建角色的隐身保护时间，单位：秒（现实时间）"
+}

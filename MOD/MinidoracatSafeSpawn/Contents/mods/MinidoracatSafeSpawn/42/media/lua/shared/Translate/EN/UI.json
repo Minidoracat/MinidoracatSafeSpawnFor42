@@ -1,0 +1,10 @@
+{
+    "UI_ghost_time_count_down": "Spawn Protection: %1s",
+    "UI_over_ghost_time": "Spawn protection ended",
+    "UI_admin_menu_title": "SafeSpawn Admin Tools",
+    "UI_admin_ghost_enable": "Enable Invisibility",
+    "UI_admin_ghost_disable": "Disable Invisibility",
+    "UI_admin_ghost_enabled": "Invisibility ENABLED",
+    "UI_admin_ghost_disabled": "Invisibility DISABLED",
+    "UI_admin_show_status": "Show Protection Status"
+}
