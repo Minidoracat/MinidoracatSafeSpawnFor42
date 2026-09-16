@@ -56,6 +56,10 @@ defaults (30/60s). Re-configure once if you had customized them.
 [h2]💬 Feedback & Community[/h2]
 [url=https://discord.gg/Gur2V67]👉 Join the Discord server[/url]
 
+[h2]☕ Support the author[/h2]
+The mod is free and always will be, and the source code is open on GitHub. If you enjoy it, consider buying me a coffee - tips go straight into servers and mod development.
+[url=https://ko-fi.com/minidoracat][img]https://raw.githubusercontent.com/Minidoracat/workshop-resources/refs/heads/main/badges/badge_kofi.png[/img][/url] [url=https://github.com/Minidoracat/MinidoracatSafeSpawnFor42][img]https://raw.githubusercontent.com/Minidoracat/workshop-resources/refs/heads/main/badges/badge_github.png[/img][/url]
+
 [b]#safespawn #spawnprotection #Minidoracat[/b]
 
 Workshop ID: 3653490664
