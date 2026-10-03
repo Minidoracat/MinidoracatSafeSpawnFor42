@@ -85,11 +85,12 @@ local function doGhost(player, isGhost)
     -- 登入點附近的殭屍通常由本玩家 client 模擬 → spottedNew 直接跳過 ghost 玩家（不看到、
     -- 不鎖定），DoFootstepSound 不再產生吸引殭屍的 WorldSound（不聽到）。
     -- 安全邊界（缺一不可）：
-    -- 1. 遊戲進行中本機旗標不會上傳（PlayerPacket 不含 cheat flags），但 ConnectPacket 的
-    --    登入快照「會」帶 getExtraInfoFlags()——OnGameStart/OnNewGame 是在 sendPlayerConnect
-    --    之前同步觸發（IngameState.enter），因此絕不可在那些事件的同步路徑寫入旗標，
-    --    否則會被伺服器 forced 套用並廣播，其他玩家將整場看不到本玩家。
-    --    旗標一律由第一個 OnTick（必在握手完成後）寫入，見 reconcileGhostState。
+    -- 1. 遊戲進行中本機旗標不會上傳（PlayerPacket 不含 cheat flags），但連線握手的快照「會」帶
+    --    getExtraInfoFlags()，伺服器 forced 套用並廣播給所有人（GameServer.receivePlayerConnect）：
+    --    登入是 ConnectPacket（OnGameStart/OnNewGame 在 sendPlayerConnect 之前同步觸發，IngameState.enter），
+    --    重生是 ConnectCoopPacket stage 2（AddCoopPlayer 跨好幾個 frame 等伺服器回覆，期間 OnTick 照跑）。
+    --    此時寫入＝其他玩家整場看不到本玩家，保護結束也不會恢復（本機解除不會上傳）。
+    --    旗標一律由 OnGhostTick 過了握手閘門（角色已進入世界）才寫入。
     -- 2. 伺服器端絕不可用 forced 版：PlayerCheats 經 IsoGameCharacter save/load（5295/5405）
     --    存入伺服器端角色檔，且 ConnectedPacket 會把伺服器旗標 forced 回寫 client。
     -- 3. 單機（無 -debug）時 PlayerCheats.isCheatAllowed 擋掉所有 cheat 旗標寫入，
@@ -190,12 +191,18 @@ OnGhostTick = function(numberTicks)
     local curPlayer = getPlayer()
     if not curPlayer then return end
 
+    -- 握手閘門：重生時 OnNewGame 之後，新角色要等 AddCoopPlayer 跟伺服器往返完才放進
+    -- IsoPlayer.players[]（42.21.0 AddCoopPlayer.java:142-153），這段期間 getPlayer() 已是新角色、
+    -- OnTick 照跑，而 SendPlayerConnect 會快照旗標上傳（見 doGhost 安全邊界 1）。
+    -- 角色進入世界前一律不動作，倒數也不起算。
+    if getSpecificPlayer(curPlayer:getPlayerNum()) ~= curPlayer then return end
+
     -- 重生保護倒數（真實時間）。OnGhostTick 只在保護作用中才註冊，
     -- 所以倒數只要掛在這裡即可，不需要獨立的 EveryOneMinute 監聽器。
     if spawnProtectActive then
         local now = getTimestampMs()
         if not ghostEndMs then
-            -- 第一個 OnTick 才起算：此時 sendPlayerConnect 握手必已完成、玩家開始能操作
+            -- 過了握手閘門才起算：角色已進入世界、開始能操作
             ghostEndMs = now + (ghostDurationSec or newGhostTime) * 1000
         end
         if now >= ghostEndMs then
@@ -299,10 +306,10 @@ reconcileGhostState = function(player)
         ghostRefreshCounter = 0
     end
     -- 啟用方向刻意「不」在此立即寫入旗標：reconcile 會在 OnGameStart/OnNewGame 的
-    -- 同步路徑被呼叫，而那是在 sendPlayerConnect 之前——此時寫入 forced 旗標會被
-    -- ConnectPacket 的 getExtraInfoFlags() 快照帶上伺服器並 forced 廣播給所有 client，
+    -- 同步路徑被呼叫，而那是在連線握手快照之前——此時寫入 forced 旗標會被
+    -- ConnectPacket／ConnectCoopPacket 的 getExtraInfoFlags() 快照帶上伺服器並 forced 廣播給所有 client，
     -- 造成其他玩家整場看不到本玩家（見 doGhost 安全邊界 1）。
-    -- 啟用方向的旗標/alpha 由第一個 OnGhostTick 寫入；解除方向立即清理無此風險。
+    -- 啟用方向的旗標/alpha 由 OnGhostTick 過了握手閘門後寫入；解除方向立即清理無此風險。
     if player and not desired then
         doGhost(player, false)
         pcall(function() player:setAlpha(1.0) end)
@@ -325,8 +332,8 @@ enableProtection = function(player)
         print("[MinidoracatSafeSpawn] WARN: getHoursSurvived 失敗，以新角色時長處理")
     end
     ghostDurationSec = (hoursSurvived < NEW_CHAR_HOURS) and newGhostTime or oldGhostTime
-    -- 截止時間刻意不在此計算：第一個 OnTick 才起算，避免把載入/握手時間吃進保護，
-    -- 也確保 forced 旗標絕不在 ConnectPacket 快照前寫入（見 doGhost / reconcile 註解）
+    -- 截止時間刻意不在此計算：OnGhostTick 過了握手閘門才起算，避免把載入/握手時間吃進保護，
+    -- 也確保 forced 旗標絕不在連線快照前寫入（見 doGhost / reconcile 註解）
     ghostEndMs = nil
     lastShownSecond = nil
     enableGhostSent = false
