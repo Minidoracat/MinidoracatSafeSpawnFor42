@@ -7,7 +7,7 @@
 [h2]🚀 Quick start[/h2]
 [list]
 [*] Requires Build 42.16.1+ and no other mods. Works in singleplayer, multiplayer and on dedicated servers; in multiplayer the server must enable this mod.
-[*] Languages: Traditional Chinese, Simplified Chinese, English, Japanese, Korean, Russian, Spanish, Portuguese, Turkish, French, Polish, German (languages other than Chinese, English and Japanese are AI-translated; corrections welcome).
+[*] Languages: Traditional Chinese, Simplified Chinese, English, Japanese, Korean, Russian, Spanish, Portuguese, Turkish, French, Polish, German (please report any translation issues).
 [*] Applies to every player; no admin privileges needed.
 [/list]
 [olist]

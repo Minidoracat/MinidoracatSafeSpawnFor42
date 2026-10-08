@@ -10,7 +10,7 @@ Players get a short invisibility protection automatically when they log in or re
 [*] No other mods required; works in singleplayer and multiplayer, and in multiplayer the server must enable this mod
 [*] Supported version: Build 42.16.1+
 [*] [b]Add/remove mid-save:[/b] safe either way
-[*] [b]Languages:[/b] 繁體中文, 简体中文, English, 日本語, 한국어, Русский, Español, Português, Türkçe, Français, Polski, Deutsch (languages other than Chinese, English and Japanese are AI-translated; corrections welcome)
+[*] [b]Languages:[/b] 繁體中文, 简体中文, English, 日本語, 한국어, Русский, Español, Português, Türkçe, Français, Polski, Deutsch (please report any translation issues)
 [/list]
 
 [h2]✨ Features[/h2]
