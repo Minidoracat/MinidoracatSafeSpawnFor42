@@ -1,0 +1,9 @@
+{
+    "Sandbox_MinidoracatSafeSpawn": "Ochrona przy pojawieniu",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn": "Duch przy pojawieniu",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Włącza ochronę ducha, gdy gracz pojawia się lub odradza",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Czas ducha (weterani)",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Czas ducha dla weteranów (ponowne logowanie), w sekundach czasu RZECZYWISTEGO",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Czas ducha (nowe postacie)",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Czas ducha dla nowo utworzonych postaci, w sekundach czasu RZECZYWISTEGO"
+}

@@ -1,0 +1,9 @@
+{
+    "Sandbox_MinidoracatSafeSpawn": "안전 스폰 보호",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn": "스폰 시 고스트 활성화",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "플레이어가 스폰하거나 리스폰할 때 고스트 보호를 활성화합니다",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "기존 캐릭터 고스트 시간",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "기존 캐릭터(재접속)의 고스트 시간, 실제 시간 기준 초 단위",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "새 캐릭터 고스트 시간",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "새로 만든 캐릭터의 고스트 시간, 실제 시간 기준 초 단위"
+}

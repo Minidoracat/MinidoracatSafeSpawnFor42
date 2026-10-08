@@ -1,0 +1,10 @@
+{
+    "UI_ghost_time_count_down": "Doğma Koruması: %1 sn",
+    "UI_over_ghost_time": "Doğma koruması sona erdi",
+    "UI_admin_menu_title": "SafeSpawn Yönetici Araçları",
+    "UI_admin_ghost_enable": "Görünmezliği Aç",
+    "UI_admin_ghost_disable": "Görünmezliği Kapat",
+    "UI_admin_ghost_enabled": "Görünmezlik AÇIK",
+    "UI_admin_ghost_disabled": "Görünmezlik KAPALI",
+    "UI_admin_show_status": "Koruma Durumunu Göster"
+}

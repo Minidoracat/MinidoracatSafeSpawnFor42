@@ -1,0 +1,9 @@
+{
+    "Sandbox_MinidoracatSafeSpawn": "Spawn-Schutz",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn": "Geistmodus beim Spawn",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Aktiviert den Geist-Schutz, wenn der Spieler spawnt oder respawnt",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Geistzeit (Veteranen)",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Geistzeit für Veteranen-Charaktere (erneuter Login) in Sekunden ECHTZEIT",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Geistzeit (neue Charaktere)",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Geistzeit für frisch erstellte Charaktere in Sekunden ECHTZEIT"
+}

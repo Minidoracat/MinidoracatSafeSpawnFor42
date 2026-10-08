@@ -1,0 +1,10 @@
+{
+    "UI_ghost_time_count_down": "스폰 보호: %1초",
+    "UI_over_ghost_time": "스폰 보호가 끝났습니다",
+    "UI_admin_menu_title": "SafeSpawn 관리자 도구",
+    "UI_admin_ghost_enable": "투명화 켜기",
+    "UI_admin_ghost_disable": "투명화 끄기",
+    "UI_admin_ghost_enabled": "투명화 켜짐",
+    "UI_admin_ghost_disabled": "투명화 꺼짐",
+    "UI_admin_show_status": "보호 상태 표시"
+}

@@ -1,0 +1,9 @@
+{
+    "Sandbox_MinidoracatSafeSpawn": "Güvenli Doğma Koruması",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn": "Doğarken Hayalet Modu",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Oyuncu doğduğunda veya yeniden doğduğunda hayalet korumasını etkinleştirir",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Eski Karakter Hayalet Süresi",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Eski karakterler (yeniden giriş yapanlar) için hayalet süresi, GERÇEK zamanlı saniye cinsinden",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Yeni Karakter Hayalet Süresi",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Yeni oluşturulan karakterler için hayalet süresi, GERÇEK zamanlı saniye cinsinden"
+}

@@ -1,0 +1,9 @@
+{
+    "Sandbox_MinidoracatSafeSpawn": "Protección al aparecer",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn": "Activar fantasma al aparecer",
+    "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Activa la protección fantasma cuando el jugador aparece o reaparece",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Tiempo fantasma (veteranos)",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Tiempo fantasma para personajes veteranos (al volver a conectarse), en segundos de tiempo REAL",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Tiempo fantasma (nuevos)",
+    "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Tiempo fantasma para personajes recién creados, en segundos de tiempo REAL"
+}
