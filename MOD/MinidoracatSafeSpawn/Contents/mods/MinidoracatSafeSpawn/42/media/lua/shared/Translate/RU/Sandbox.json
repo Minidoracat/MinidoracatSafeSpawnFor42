@@ -2,8 +2,8 @@
     "Sandbox_MinidoracatSafeSpawn": "Защита при появлении",
     "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn": "Призрак при появлении",
     "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Включает защиту-призрак, когда игрок появляется или возрождается",
-    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Время призрака: ветераны",
-    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Время призрака для ветеранов (при повторном входе), в секундах РЕАЛЬНОГО времени",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Время призрака: повторный вход",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Время призрака для существующих персонажей (при повторном входе), в секундах РЕАЛЬНОГО времени",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Время призрака: новые",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Время призрака для только что созданных персонажей, в секундах РЕАЛЬНОГО времени"
 }
