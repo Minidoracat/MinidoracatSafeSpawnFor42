@@ -11,7 +11,7 @@ Project Zomboid **Build 42** 安全重生保護模組。玩家登入或重生時
 | **名稱** | Minidoracat Safe Spawn |
 | **Mod ID** | `MinidoracatSafeSpawn` |
 | **Workshop ID** | [`3653490664`](https://steamcommunity.com/sharedfiles/filedetails/?id=3653490664) |
-| **Mod 版本** | 42.21.0-1.5.1 |
+| **Mod 版本** | 42.21.0-1.6.0 |
 | **支援版本** | Build 42.16.1+（已對 42.21.0 完成 API 相容性稽核） |
 | **作者** | Minidoracat |
 | **架構** | client-server 混合（Lua） |
