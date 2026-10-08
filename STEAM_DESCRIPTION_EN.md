@@ -9,7 +9,8 @@ Players get a short invisibility protection automatically when they log in or re
 [list]
 [*] No other mods required; works in singleplayer and multiplayer, and in multiplayer the server must enable this mod
 [*] Supported version: Build 42.16.1+
-[*] Languages: Traditional Chinese, Simplified Chinese, English, Japanese
+[*] [b]Add/remove mid-save:[/b] safe either way
+[*] [b]Languages:[/b] 繁體中文, 简体中文, English, 日本語
 [/list]
 
 [h2]✨ Features[/h2]
