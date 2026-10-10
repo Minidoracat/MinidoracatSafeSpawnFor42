@@ -1,39 +1,23 @@
 ---
 --- MinidoracatSafeSpawn - Server-side Command Handler
---- Handles ghost mode state changes that require server authority
+--- 保護到期時回報伺服器端的隱形真值。登入／重生保護只在 client 本機生效（覆蓋層），
+--- 伺服器端的隱形只由原版機制改動：管理面板、/invisible、本 MOD 管理員選單走的 ExtraInfo。
 ---
 
 print("[MinidoracatSafeSpawn] Loading SafeSpawnServer.lua...")
 
--- 記錄每位玩家目前的幽靈狀態。client 端會每 GHOST_REFRESH_INTERVAL tick 重送 enableGhost
--- 作為安全網；這裡仍每次重新套用（cheap，確保伺服器端狀態），但只在狀態「真正改變」時
--- 才 print，避免定期刷新洗版 log（每位受保護玩家原本每 ~300 tick 就會多一行 log）。
-local ghostState = {}
-
 local function onClientCommand(module, command, player, args)
-    if module ~= "MinidoracatSafeSpawn" then return end
+    if module ~= "MinidoracatSafeSpawn" or command ~= "restore" then return end
     if not player then return end
 
-    local key = tostring(player:getUsername())
-
-    if command == "enableGhost" then
-        player:setGhostMode(true)
-        player:setZombiesDontAttack(true)
-        pcall(function() player:setInvisible(true) end)
-        if ghostState[key] ~= true then
-            ghostState[key] = true
-            print("[MinidoracatSafeSpawn] Server: Ghost mode ENABLED for " .. key)
-        end
-
-    elseif command == "disableGhost" then
-        player:setGhostMode(false)
-        player:setZombiesDontAttack(false)
-        pcall(function() player:setInvisible(false) end)
-        if ghostState[key] ~= false then
-            ghostState[key] = false
-            print("[MinidoracatSafeSpawn] Server: Ghost mode DISABLED for " .. key)
-        end
-    end
+    -- gated setter 寫回原值：有 ToggleInvisibleHimself 的人不變；沒有的被引擎設回 false
+    -- （外洩旗標，例：舊版握手快照被 forced 套用）。伺服器端絕不用 forced 兩參數版：
+    -- PlayerCheats 會存進角色檔，重連時 ConnectedPacket 再 forced 回寫 client，變成永久隱形。
+    pcall(function() player:setInvisible(player:isInvisible()) end)
+    local invisible = player:isInvisible()
+    sendServerCommand(player, "MinidoracatSafeSpawn", "restore", { invisible = invisible })
+    print("[MinidoracatSafeSpawn] Server: restore " .. tostring(player:getUsername())
+        .. " invisible=" .. tostring(invisible))
 end
 
 Events.OnClientCommand.Add(onClientCommand)

@@ -30,6 +30,7 @@
 [list]
 [*] Zombies can't see you or hear your footsteps and won't attack, so they no longer walk up to you; any zombie that targets you keeps losing its target.
 [*] In multiplayer, these effects apply to zombies simulated by your own game, which usually includes the ones around your spawn point. See "Known limitations" for the exceptions.
+[*] Protection only takes effect in your own game; other players always see you moving normally, and that includes admins.
 [/list]
 
 [h3]Real-time countdown[/h3]
@@ -55,11 +56,12 @@ Your character is semi-transparent while protected, so you can tell at a glance 
 
 [h3]Admin tools[/h3]
 [list]
-[*] Admins (and moderators in multiplayer) get a "SafeSpawn Admin Tools" submenu when right-clicking in the world; regular players don't see it.
-[*] [b]Enable / Disable Invisibility[/b]: toggles invisibility manually with no time limit, until you turn it off or your character dies. While it's on, the spawn countdown keeps running but its hints are hidden.
+[*] Roles that are allowed to toggle their own invisibility (admin, moderator, GM, observer, or a custom role with that permission) get a "SafeSpawn Admin Tools" submenu when right-clicking in the world; regular players don't see it.
+[*] [b]Enable / Disable Invisibility[/b]: the same as "Invisible" in the vanilla admin panel: other players can't see you, and it stays on after you log back in until you turn it off. You can also turn it on during the protection countdown; the countdown keeps running with its hints hidden, and you stay invisible after protection ends.
 [*] Manual invisibility and spawn protection are independent: turning manual invisibility off while spawn protection is still counting down doesn't cancel spawn protection.
 [*] [b]Show Protection Status[/b]: shows the internal state (invisible or not, seconds remaining, etc.) overhead and in the log, which helps with bug reports.
 [*] Admin tools don't depend on "Enable Ghost on Spawn" and still work when it's off.
+[*] If you open the vanilla admin panel while protected, "Invisible" shows as checked (that's the protection); saving the panel then turns invisibility on for real.
 [/list]
 
 [h2]⚙️ Settings (Sandbox Options)[/h2]
