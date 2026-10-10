@@ -87,7 +87,7 @@ end
 --- 自然回落秒制新預設 30/60，避免被靜默重解讀成 3 秒/10 秒。
 local function syncSandBoxVar()
     if not getSandboxVars() then
-        print("[MinidoracatSafeSpawn] WARN: SandboxVars 未就緒，使用預設 "
+        print("[MinidoracatSafeSpawn] WARN: SandboxVars not ready, using defaults "
             .. tostring(oldGhostTime) .. "/" .. tostring(newGhostTime) .. "s")
         return
     end
@@ -228,7 +228,7 @@ OnGhostTick = function(numberTicks)
         if invOk then
             invisChecked = inv and true or false
             if not inv then
-                print("[MinidoracatSafeSpawn] WARN: forced setInvisible 未生效（引擎版本不相容？），退回殭屍目標清除保護")
+                print("[MinidoracatSafeSpawn] WARN: forced setInvisible had no effect (incompatible engine version?), falling back to zombie-target-clearing protection")
             end
         end
     end
@@ -285,7 +285,7 @@ enableProtection = function(player)
     if hoursSuccess and hours then
         hoursSurvived = hours
     else
-        print("[MinidoracatSafeSpawn] WARN: getHoursSurvived 失敗，以新角色時長處理")
+        print("[MinidoracatSafeSpawn] WARN: getHoursSurvived failed, using new-character duration")
     end
     ghostDurationSec = (hoursSurvived < NEW_CHAR_HOURS) and newGhostTime or oldGhostTime
     -- 截止時間刻意不在此計算：OnGhostTick 過了握手閘門才起算，避免把載入/握手時間吃進保護，
