@@ -23,6 +23,7 @@
 [*] [b]Start[/b]: turns on automatically when you log in (load a save or join a server) and when you respawn as a new character after dying. It does not turn on if "Enable Ghost on Spawn" is off.
 [*] [b]End[/b]: ends automatically when the countdown reaches 0; "Spawn protection ended" appears overhead and the transparency goes away.
 [*] [b]Death[/b]: dying clears all protection state, and your new character gets a fresh protection period.
+[*] [b]Already invisible[/b]: if your character is already invisible when you log in or respawn (for example, an admin turned it on in the vanilla admin panel) and your role is allowed to be invisible, protection doesn't start and there's no countdown. Your invisibility stays as it is, with a one-time "Invisibility ENABLED" note overhead.
 [/list]
 
 [h3]What zombies do during protection[/h3]

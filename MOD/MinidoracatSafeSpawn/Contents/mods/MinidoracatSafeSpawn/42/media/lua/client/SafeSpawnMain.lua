@@ -202,6 +202,22 @@ OnGhostTick = function(numberTicks)
     if spawnProtectActive then
         local now = getTimestampMs()
         if not ghostEndMs then
+            -- 本來就隱形、身分也有隱形權限（原版管理面板／指令開的，存在伺服器角色檔、登入時載回）：
+            -- 不倒數也不碰旗標，否則到期的 doGhost(false) 會連原本的隱形一起解除。
+            -- 判斷放在這裡：本 MOD 還沒寫任何旗標，且 ConnectedPacket 已套上伺服器 role
+            -- （同步路徑的 player:getRole() 仍是預設 user，IsoPlayer.java:330）。
+            -- 沒有 ToggleInvisibleHimself 卻帶著隱形＝外洩旗標，照常保護、到期清掉。
+            local ok, keep = pcall(function()
+                return curPlayer:isInvisible()
+                    and curPlayer:getRole():hasCapability(Capability.ToggleInvisibleHimself)
+            end)
+            if ok and keep then
+                spawnProtectActive = false
+                reconcileGhostState(nil)  -- nil：只撤 OnTick，不送 disableGhost、不動旗標與 alpha
+                print("[MinidoracatSafeSpawn] Already invisible (ToggleInvisibleHimself); spawn protection skipped")
+                pcall(function() curPlayer:setHaloNote(getText("UI_admin_ghost_enabled")) end)
+                return
+            end
             -- 過了握手閘門才起算：角色已進入世界、開始能操作
             ghostEndMs = now + (ghostDurationSec or newGhostTime) * 1000
         end
@@ -288,7 +304,7 @@ end
 --- 調和幽靈狀態：依 spawnProtectActive / adminGhostToggle 兩個獨立原因，
 --- 決定 OnTick 註冊與隱形開關。只有「兩個原因都關閉」時才真正解除保護，
 --- 避免管理員手動切換與重生倒數互相覆蓋（彼此清除對方所需的 OnTick / enterGhost）。
---- @param player IsoPlayer|nil 目前玩家（可為 nil，僅跳過視覺套用）
+--- @param player IsoPlayer|nil 目前玩家；nil 時不動旗標與 alpha、不送 disableGhost（只調整 OnTick 與 enterGhost）
 reconcileGhostState = function(player)
     local desired = spawnProtectActive or adminGhostToggle
     startGhost(desired)
