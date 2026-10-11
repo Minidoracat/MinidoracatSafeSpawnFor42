@@ -1,6 +1,6 @@
 version=1
 id=3653490664
-title=[B42] Minidoracat Safe Spawn - 安全重生保護
+title=[B42] Minidoracat Safe Spawn
 description=[h1]🛡️ Minidoracat Safe Spawn for B42[/h1]
 description=[h3]By Minidoracat[/h3]
 description=
