@@ -1,4 +1,4 @@
-[h1]🛡️ Minidoracat Safe Spawn for B42[/h1]
+[h1]🛡️ Minidoracat Safe Spawn[/h1]
 [h3]By Minidoracat[/h3]
 
 [hr][/hr]
