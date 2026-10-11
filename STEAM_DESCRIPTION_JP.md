@@ -22,8 +22,8 @@
 [*] [b]わかりやすい表示[/b]：キャラクターが半透明になり、頭上テキストで残り秒数を無音で表示します
 [*] [b]管理者ツール[/b]：右クリックメニューで透明モードの切り替えや保護状態の確認ができます
 [/list]
-⚠️ 保護はゲームエンジンの制限を受けるため、完全無敵ではありません。噛まれてしまう主な原因は解説スレッドにまとめています。
-📖 [b]保護の仕組み、サンドボックスオプション、既知の制限、よくある質問：[/b][url=https://steamcommunity.com/workshop/filedetails/discussion/3653490664/586187095760095658/]Safe Spawn Guide: Protection, Settings & Known Limitations[/url]（英語）
+⚠️ 保護はゲームエンジンの制限を受けるため、完全無敵ではありません。噛まれてしまう主な原因はガイド（英語）にまとめています。
+📖 [b]保護の仕組み、サンドボックスオプション、既知の制限、よくある質問：[/b][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3817838849]Safe Spawn Mod Guide: Protection, Settings & Known Limitations[/url]（英語）
 
 [h2]🔗 Minidoracat の MOD 一覧[/h2]
 すべての MOD を[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809297109]Minidoracat 全シリーズ コレクション[/url]にまとめています。必要なものを選んでサブスクライブしてください。

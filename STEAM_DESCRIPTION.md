@@ -22,8 +22,8 @@
 [*] [b]清楚的狀態提示[/b]：角色呈半透明，頭頂文字無聲提示剩餘秒數
 [*] [b]管理員工具[/b]：右鍵選單可即時切換隱形、查看保護狀態
 [/list]
-⚠️ 保護受遊戲引擎限制，並非絕對無敵；還是被咬的常見原因整理在說明串。
-📖 [b]保護機制、沙盒選項、已知限制與常見問題：[/b][url=https://steamcommunity.com/workshop/filedetails/discussion/3653490664/586187095760095624/]Safe Spawn 完整說明：保護機制、設定與已知限制[/url]
+⚠️ 保護受遊戲引擎限制，並非絕對無敵；還是被咬的常見原因整理在完整說明。
+📖 [b]保護機制、沙盒選項、已知限制與常見問題：[/b][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3817838819]安全重生保護 Safe Spawn MOD 完整說明：保護機制、設定與已知限制[/url]
 
 [h2]🔗 Minidoracat 全系列[/h2]
 其他作品都在[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809297109]Minidoracat 全系列收藏[/url]，依需求自選訂閱。

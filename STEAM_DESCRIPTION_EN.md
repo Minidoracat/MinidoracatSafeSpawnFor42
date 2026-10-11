@@ -23,7 +23,7 @@ Players get a short invisibility protection automatically when they log in or re
 [*] [b]Admin tools[/b]: right-click menu to toggle invisibility or check protection status
 [/list]
 ⚠️ Protection is limited by the game engine and isn't absolute; the common reasons you might still get bitten are covered in the guide.
-📖 [b]How protection works, Sandbox Options, known limitations & FAQ:[/b] [url=https://steamcommunity.com/workshop/filedetails/discussion/3653490664/586187095760095658/]Safe Spawn Guide: Protection, Settings & Known Limitations[/url]
+📖 [b]How protection works, Sandbox Options, known limitations & FAQ:[/b] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3817838849]Safe Spawn Mod Guide: Protection, Settings & Known Limitations[/url]
 
 [h2]🔗 More Minidoracat mods[/h2]
 All my mods are in the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3809297109]Minidoracat Mods for B42 collection[/url] — pick what you need.
