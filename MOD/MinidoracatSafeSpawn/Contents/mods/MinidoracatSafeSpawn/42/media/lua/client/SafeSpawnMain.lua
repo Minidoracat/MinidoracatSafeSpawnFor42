@@ -36,6 +36,17 @@ local function getSandboxVar(key, default)
     return value
 end
 
+--- 有沒有隱形權限（ToggleInvisibleHimself）：管理員選單與「本來就隱形就不跑保護」共用。
+--- 單機沒有 role：Roles 只在伺服器初始化，IsoPlayer.role 取 Roles.getDefaultForNewUser() 是 nil
+--- （IsoPlayer.java:330、Roles.java:95-97，42.21.0）。nil 要自己判，不能靠外層 pcall：Kahlua 在 pcall
+--- 接住之前就把錯誤記進錯誤清單（KahluaThread.java:894-897），玩家右下角照樣看到報錯。
+--- @param player IsoPlayer
+--- @return boolean
+local function hasInvisibleCapability(player)
+    local role = player:getRole()
+    return role ~= nil and role:hasCapability(Capability.ToggleInvisibleHimself)
+end
+
 -- ============================================================================
 -- Global Variables
 -- ============================================================================
@@ -164,10 +175,9 @@ OnGhostTick = function(numberTicks)
     local now = getTimestampMs()
     if not ghostEndMs then
         -- 第一個過閘門的 tick：本 MOD 還沒寫任何旗標，ConnectedPacket 也已套上伺服器 role
-        -- （同步路徑的 player:getRole() 仍是預設 user，IsoPlayer.java:330），讀到的就是真值。
+        -- （同步路徑的 player:getRole() 還不是伺服器給的 role，多半是 nil），讀到的就是真值。
         local ok, keep = pcall(function()
-            return curPlayer:isInvisible()
-                and curPlayer:getRole():hasCapability(Capability.ToggleInvisibleHimself)
+            return curPlayer:isInvisible() and hasInvisibleCapability(curPlayer)
         end)
         adminGhostToggle = ok and keep == true
         if adminGhostToggle then
@@ -357,7 +367,7 @@ local function onFillWorldObjectContextMenu(playerNum, context, worldObjects, te
     -- 選單做的就是原版隱形，伺服器也用同一個權限驗證（ExtraInfoPacket.processServer）。
     -- 不用 isAdmin()：identity 比較，42.21 MP 的 admin 帳號也回 false（2026-10-10 E2E 實測）。
     local ok, capable = pcall(function()
-        return player:getRole():hasCapability(Capability.ToggleInvisibleHimself)
+        return hasInvisibleCapability(player)
     end)
     if not (ok and capable) then return end
 
