@@ -19,6 +19,7 @@ Players get a short invisibility protection automatically when they log in or re
 [*] [b]Zombies don't notice you[/b]: they can't see or hear you and won't attack
 [*] [b]Real-time countdown[/b]: unaffected by the server's clock speed, starts after loading finishes
 [*] [b]Longer for new characters[/b]: both durations are adjustable in Sandbox Options
+[*] [b]Relog limit[/b]: server owners can cap how often returning characters get protection
 [*] [b]Clear status cues[/b]: semi-transparent character and a silent overhead countdown
 [*] [b]Admin tools[/b]: right-click menu to toggle invisibility or check protection status
 [/list]
