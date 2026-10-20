@@ -7,6 +7,12 @@
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "旧角色无敌时间",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "旧角色（重新登录）的隐身保护时间，单位：秒（现实时间）",
 
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit": "旧角色保护次数上限",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit_tooltip": "旧角色（重新登录）在计算时段内最多获得几次保护。0 表示不限制。仅多人游戏有效，断线重连也算一次。",
+
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes": "保护次数计算时段",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes_tooltip": "旧角色保护次数上限的计算时段，单位：分钟（现实时间）。60 表示每小时。",
+
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "新角色无敌时间",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "新建角色的隐身保护时间，单位：秒（现实时间）"
 }

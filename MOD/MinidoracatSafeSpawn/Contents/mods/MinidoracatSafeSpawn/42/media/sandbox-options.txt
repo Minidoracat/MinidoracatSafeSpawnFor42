@@ -18,6 +18,26 @@ option MinidoracatSafeSpawn.NormalGhostSeconds
     translation = MinidoracatSafeSpawn_NormalGhostSeconds,
 }
 
+option MinidoracatSafeSpawn.NormalGhostLimit
+{
+    type = integer,
+    min = 0,
+    max = 20,
+    default = 0,
+    page = MinidoracatSafeSpawn,
+    translation = MinidoracatSafeSpawn_NormalGhostLimit,
+}
+
+option MinidoracatSafeSpawn.NormalGhostWindowMinutes
+{
+    type = integer,
+    min = 1,
+    max = 1440,
+    default = 60,
+    page = MinidoracatSafeSpawn,
+    translation = MinidoracatSafeSpawn_NormalGhostWindowMinutes,
+}
+
 option MinidoracatSafeSpawn.NewStartSeconds
 {
     type = integer,

@@ -1,6 +1,7 @@
 {
     "UI_ghost_time_count_down": "Защита при появлении: %1 с",
     "UI_over_ghost_time": "Защита при появлении закончилась",
+    "UI_ghost_limit_reached": "Лимит защиты при появлении исчерпан. Снова доступна примерно через %1 мин",
     "UI_admin_menu_title": "SafeSpawn: инструменты админа",
     "UI_admin_ghost_enable": "Включить невидимость",
     "UI_admin_ghost_disable": "Выключить невидимость",

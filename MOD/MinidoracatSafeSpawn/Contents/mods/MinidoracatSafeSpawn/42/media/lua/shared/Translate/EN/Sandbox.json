@@ -7,6 +7,12 @@
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Veteran Ghost Time",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Ghost time for veteran characters (relogging in) in seconds of REAL time",
 
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit": "Veteran Ghost Limit",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit_tooltip": "How many times a veteran character (relogging in) can get ghost protection within the limit window. 0 = no limit. Multiplayer only; reconnecting after a crash also counts.",
+
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes": "Veteran Ghost Limit Window",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes_tooltip": "Length of the Veteran Ghost Limit window in minutes of REAL time. 60 = per hour.",
+
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "New Character Ghost Time",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Ghost time for freshly created characters in seconds of REAL time"
 }

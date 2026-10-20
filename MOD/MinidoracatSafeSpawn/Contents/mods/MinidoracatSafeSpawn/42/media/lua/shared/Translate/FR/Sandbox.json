@@ -4,6 +4,10 @@
     "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Active la protection fantôme quand le joueur apparaît ou réapparaît",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Durée fantôme (vétérans)",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Durée fantôme des personnages vétérans (reconnexion), en secondes de temps RÉEL",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit": "Limite fantôme (vétérans)",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit_tooltip": "Nombre de fois qu'un personnage vétéran (reconnexion) peut recevoir la protection fantôme pendant la période de limite. 0 = aucune limite. Multijoueur uniquement ; une reconnexion après un plantage compte aussi.",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes": "Période de la limite fantôme",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes_tooltip": "Durée de la période de la limite fantôme (vétérans), en minutes de temps RÉEL. 60 = par heure.",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Durée fantôme (nouveaux)",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Durée fantôme des personnages fraîchement créés, en secondes de temps RÉEL"
 }

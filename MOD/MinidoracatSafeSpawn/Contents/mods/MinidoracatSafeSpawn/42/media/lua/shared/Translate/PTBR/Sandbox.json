@@ -4,6 +4,10 @@
     "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Ativa a proteção fantasma quando o jogador surge ou ressurge",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Tempo fantasma (veteranos)",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Tempo fantasma para personagens veteranos (ao reconectar), em segundos de tempo REAL",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit": "Limite fantasma (veteranos)",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit_tooltip": "Quantas vezes um personagem veterano (ao reconectar) pode receber proteção fantasma dentro do período do limite. 0 = sem limite. Apenas multijogador; reconectar após uma queda também conta.",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes": "Período do limite fantasma",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes_tooltip": "Duração do período do limite fantasma (veteranos), em minutos de tempo REAL. 60 = por hora.",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Tempo fantasma (novos)",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Tempo fantasma para personagens recém-criados, em segundos de tempo REAL"
 }

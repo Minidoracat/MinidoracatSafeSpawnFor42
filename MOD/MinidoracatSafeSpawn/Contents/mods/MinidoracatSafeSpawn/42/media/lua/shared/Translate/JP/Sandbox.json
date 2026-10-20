@@ -7,6 +7,12 @@
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "既存キャラの透明時間",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "既存キャラクター（再ログイン）の透明保護時間。単位：秒（現実時間）",
 
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit": "既存キャラの保護回数上限",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit_tooltip": "既存キャラクター（再ログイン）が集計期間内に透明保護を受けられる回数。0で無制限。マルチプレイのみ有効。切断後の再接続も1回として数えます。",
+
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes": "保護回数の集計期間",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes_tooltip": "既存キャラの保護回数上限の集計期間。単位：分（現実時間）。60で1時間ごと。",
+
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "新規キャラの透明時間",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "新規作成キャラクターの透明保護時間。単位：秒（現実時間）"
 }

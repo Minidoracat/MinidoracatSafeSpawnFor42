@@ -25,6 +25,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3653490664
 [*] [b]Start[/b]: turns on automatically when you log in (load a save or join a server) and when you respawn as a new character after dying. It does not turn on if "Enable Ghost on Spawn" is off.
 [*] [b]End[/b]: ends automatically when the countdown reaches 0; "Spawn protection ended" appears overhead and the transparency goes away.
 [*] [b]Death[/b]: dying clears all protection state, and your new character gets a fresh protection period.
+[*] [b]Limit[/b]: the server owner can limit how many times a returning character gets login protection within a set period (multiplayer only; no limit by default). Once the limit is used up, you get no protection for that login and "Spawn protection limit reached. Available again in about N min" appears overhead. New characters and respawns after death aren't affected.
 [*] [b]Already invisible[/b]: if your character is already invisible when you log in or respawn (for example, an admin turned it on in the vanilla admin panel) and your role is allowed to be invisible, protection doesn't start and there's no countdown. Your invisibility stays as it is, with a one-time "Invisibility ENABLED" note overhead.
 [/list]
 [h3]New vs. returning characters[/h3]
@@ -83,6 +84,8 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3653490664
 [tr][th]Option[/th][th]What it does[/th][th]Default[/th][th]Range[/th][th]Settings file key[/th][/tr]
 [tr][td]Enable Ghost on Spawn[/td][td]Turns login and respawn protection on or off[/td][td]On[/td][td]–[/td][td]EnableGhostOnSpawn[/td][/tr]
 [tr][td]Veteran Ghost Time[/td][td]Protection for returning characters, in real seconds[/td][td]30[/td][td]1–600[/td][td]NormalGhostSeconds[/td][/tr]
+[tr][td]Veteran Ghost Limit[/td][td]How many times a returning character can get protection within the limit window; 0 = no limit; multiplayer only[/td][td]0[/td][td]0–20[/td][td]NormalGhostLimit[/td][/tr]
+[tr][td]Veteran Ghost Limit Window[/td][td]Length of the Veteran Ghost Limit window, in real minutes[/td][td]60[/td][td]1–1440[/td][td]NormalGhostWindowMinutes[/td][/tr]
 [tr][td]New Character Ghost Time[/td][td]Protection for new characters, in real seconds[/td][td]60[/td][td]1–600[/td][td]NewStartSeconds[/td][/tr]
 [/table]
 [list]
@@ -122,6 +125,13 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3653490664
 [list]
 [*] That's the old text from before 1.5.0; since 1.5.0 it shows the remaining seconds.
 [*] Update both the game and the mod to the latest version.
+[/list]
+[h3]No protection when I logged in, and the overhead text says the limit is reached?[/h3]
+[list]
+[*] The server owner turned on "Veteran Ghost Limit": a returning character only gets protection for a few logins within a set period, and once that's used up, the login gets no protection.
+[*] The N in "Available again in about N min" is how long you have to wait; log in after that and you'll be protected again.
+[*] Reconnecting after a disconnect counts as a login and uses one up.
+[*] New characters and respawns after death aren't affected by this limit.
 [/list]
 [h3]Is a log message from this mod?[/h3]
 [list]

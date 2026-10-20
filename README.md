@@ -34,6 +34,8 @@ Project Zomboid **Build 42** 安全重生保護模組。玩家登入或重生時
 |------|------|------|------|
 | 啟用登入保護 | boolean | 開啟 | 重生 / 登入時是否啟用保護 |
 | 舊角色保護時間 | integer (1–600) | 30 | 舊角色保護時間（秒，現實時間） |
+| 舊角色保護次數上限 | integer (0–20) | 0 | 舊角色在計算時段內最多獲得幾次保護；0＝不限制（只在多人遊戲有效，斷線重連也算一次） |
+| 保護次數計算時段 | integer (1–1440) | 60 | 保護次數上限的計算時段（分鐘，現實時間） |
 | 新角色保護時間 | integer (1–600) | 60 | 新角色保護時間（秒，現實時間） |
 
 ## 安裝
@@ -54,7 +56,7 @@ Project Zomboid **Build 42** 安全重生保護模組。玩家登入或重生時
 ```
 MOD/MinidoracatSafeSpawn/Contents/mods/MinidoracatSafeSpawn/42/   # PZ 模組根目錄
 ├── mod.info
-├── media/sandbox-options.txt                                     # 3 個沙盒選項
+├── media/sandbox-options.txt                                     # 5 個沙盒選項
 └── media/lua/
     ├── client/SafeSpawnMain.lua                                  # 客戶端主邏輯
     ├── server/SafeSpawnServer.lua                                # 伺服器端命令處理

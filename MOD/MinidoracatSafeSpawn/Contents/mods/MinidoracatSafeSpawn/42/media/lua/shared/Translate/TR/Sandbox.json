@@ -4,6 +4,10 @@
     "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Oyuncu doğduğunda veya yeniden doğduğunda hayalet korumasını etkinleştirir",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Eski Karakter Hayalet Süresi",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Eski karakterler (yeniden giriş yapanlar) için hayalet süresi, GERÇEK zamanlı saniye cinsinden",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit": "Eski Karakter Hayalet Sınırı",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit_tooltip": "Eski bir karakterin (yeniden giriş yapan) sınır süresi içinde kaç kez hayalet koruması alabileceği. 0 = sınırsız. Yalnızca çok oyunculu; çökme sonrası yeniden bağlanmak da sayılır.",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes": "Hayalet Sınırı Süresi",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes_tooltip": "Eski Karakter Hayalet Sınırı süresinin uzunluğu, GERÇEK zamanlı dakika cinsinden. 60 = saat başına.",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Yeni Karakter Hayalet Süresi",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Yeni oluşturulan karakterler için hayalet süresi, GERÇEK zamanlı saniye cinsinden"
 }

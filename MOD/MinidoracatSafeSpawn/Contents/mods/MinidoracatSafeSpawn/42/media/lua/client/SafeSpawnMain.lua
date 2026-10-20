@@ -57,6 +57,8 @@ local ghostDurationSec = nil  -- 本次保護時長（秒），enableProtection 
 local lastShownSecond = nil  -- 上次顯示過倒數的秒數（避免同一秒重複顯示 halo）
 local invisChecked = nil  -- forced setInvisible 生效性哨兵（nil = 尚未檢查，僅 MP 檢查一次）
 local NEW_CHAR_HOURS = 0.1  -- 存活未滿 0.1 遊戲小時（6 遊戲分鐘）視為新角色
+local needClaim = false  -- 這次是舊角色登入：過了握手閘門要先向伺服器申請（沙盒 NormalGhostLimit）
+local claimWait = false  -- 已送申請、等伺服器回覆：期間不寫旗標、不倒數（回覆見 OnServerCommand）
 newGhostTime = 60  -- 新角色保護秒數（現實時間）
 oldGhostTime = 30  -- 老角色保護秒數（現實時間）
 enterGhost = false  -- 本機覆蓋層是否作用中（與 spawnProtectActive 同步；E2E 情境讀它）
@@ -136,6 +138,8 @@ local function OnPlayerDeath(_)
     -- 角色已死：撤掉本機覆蓋層就好（新角色不帶舊的隱形），不必向伺服器要真值
     spawnProtectActive = false
     adminGhostToggle = false
+    needClaim = false
+    claimWait = false  -- 死亡前送出的申請，回覆晚到也不理
     reconcileGhostState(getPlayer(), false)
 end
 
@@ -171,6 +175,7 @@ OnGhostTick = function(numberTicks)
     -- OnTick 照跑，而 SendPlayerConnect 會快照旗標上傳（見下方覆蓋層的安全邊界 1）。
     -- 角色進入世界前一律不動作，倒數也不起算。
     if getSpecificPlayer(curPlayer:getPlayerNum()) ~= curPlayer then return end
+    if claimWait then return end  -- 等伺服器回覆申請（OnServerCommand）：不寫旗標、不倒數
 
     local now = getTimestampMs()
     if not ghostEndMs then
@@ -188,6 +193,16 @@ OnGhostTick = function(numberTicks)
             reconcileGhostState(nil, false)
             print("[MinidoracatSafeSpawn] Already invisible (ToggleInvisibleHimself); spawn protection skipped")
             pcall(function() curPlayer:setHaloNote(getText("UI_admin_ghost_enabled")) end)
+            return
+        end
+        if needClaim then
+            -- 舊角色登入要伺服器准了才保護（一段時間內的次數上限）。過了握手閘門才送：OnGameStart 時
+            -- GameClient.ingame 還是 false，sendClientCommand 走單機虛擬連線，專用伺服器收不到
+            -- （LuaManager.java:8936-8948）。
+            needClaim = false
+            claimWait = true
+            sendClientCommand(curPlayer, "MinidoracatSafeSpawn", "claim", {})
+            print("[MinidoracatSafeSpawn] Claim sent (veteran protection limit)")
             return
         end
         -- 過了握手閘門才起算：角色已進入世界、開始能操作（真實時間，不掛 EveryOneMinute）
@@ -298,6 +313,10 @@ enableProtection = function(player)
         print("[MinidoracatSafeSpawn] WARN: getHoursSurvived failed, using new-character duration")
     end
     ghostDurationSec = (hoursSurvived < NEW_CHAR_HOURS) and newGhostTime or oldGhostTime
+    -- 舊角色登入要先向伺服器申請（沙盒 NormalGhostLimit，0 = 不限）；單機沒有伺服器，不申請
+    needClaim = isClient() and hoursSurvived >= NEW_CHAR_HOURS
+        and getSandboxVar("NormalGhostLimit", 0) > 0
+    claimWait = false
     -- 截止時間刻意不在此計算：OnGhostTick 過了握手閘門才起算，避免把載入/握手時間吃進保護，
     -- 也確保 forced 旗標絕不在連線快照前寫入（見 OnGhostTick 覆蓋層的安全邊界 1）
     ghostEndMs = nil
@@ -380,9 +399,29 @@ local function onFillWorldObjectContextMenu(playerNum, context, worldObjects, te
     subMenu:addOption(getText("UI_admin_show_status"), player, onAdminShowStatus)
 end
 
---- 伺服器回報隱形真值（保護到期時要的，見 releaseOverlay）
+--- 伺服器回覆：claim＝舊角色登入申請的結果；restore＝保護到期時要的隱形真值（見 releaseOverlay）
 local function OnServerCommand(module, command, args)
-    if module ~= "MinidoracatSafeSpawn" or command ~= "restore" then return end
+    if module ~= "MinidoracatSafeSpawn" then return end
+    if command == "claim" then
+        -- 死亡或重新啟用保護後才到的回覆不理（claimWait 已清掉）
+        if not claimWait or type(args) ~= "table" then return end
+        claimWait = false
+        if args.granted then  -- 准：下一個 OnGhostTick 照常起算倒數
+            print("[MinidoracatSafeSpawn] Claim granted")
+            return
+        end
+        -- 拒：覆蓋層還沒寫過，只撤 OnTick（同「本來就隱形」那條路）。分鐘數由伺服器算，字在本機組：
+        -- 專用伺服器的 Translator 沒有 MOD 的鍵。
+        spawnProtectActive = false
+        reconcileGhostState(nil, false)
+        print("[MinidoracatSafeSpawn] Claim denied, wait " .. tostring(args.waitMinutes) .. " min")
+        local player = getPlayer()
+        if player then
+            pcall(function() player:setHaloNote(getText("UI_ghost_limit_reached", args.waitMinutes)) end)
+        end
+        return
+    end
+    if command ~= "restore" then return end
     if spawnProtectActive or type(args) ~= "table" then return end  -- 回覆前又開始新一段保護：覆蓋層照舊
     local player = getPlayer()
     if not player then return end

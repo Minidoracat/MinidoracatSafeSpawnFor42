@@ -4,6 +4,10 @@
     "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Włącza ochronę ducha, gdy gracz pojawia się lub odradza",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Czas ducha (weterani)",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Czas ducha dla weteranów (ponowne logowanie), w sekundach czasu RZECZYWISTEGO",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit": "Limit ducha (weterani)",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit_tooltip": "Ile razy weteran (ponowne logowanie) może otrzymać ochronę ducha w okresie limitu. 0 = bez limitu. Tylko gra wieloosobowa; ponowne połączenie po awarii też się liczy.",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes": "Okres limitu ducha",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes_tooltip": "Długość okresu limitu ducha (weterani), w minutach czasu RZECZYWISTEGO. 60 = na godzinę.",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Czas ducha (nowe postacie)",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Czas ducha dla nowo utworzonych postaci, w sekundach czasu RZECZYWISTEGO"
 }

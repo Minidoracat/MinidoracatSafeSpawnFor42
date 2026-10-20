@@ -4,6 +4,10 @@
     "Sandbox_MinidoracatSafeSpawn_EnableGhostOnSpawn_tooltip": "Aktiviert den Geist-Schutz, wenn der Spieler spawnt oder respawnt",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds": "Geistzeit (Veteranen)",
     "Sandbox_MinidoracatSafeSpawn_NormalGhostSeconds_tooltip": "Geistzeit für Veteranen-Charaktere (erneuter Login) in Sekunden ECHTZEIT",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit": "Geist-Limit (Veteranen)",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostLimit_tooltip": "Wie oft ein Veteranen-Charakter (erneuter Login) innerhalb des Limit-Zeitraums Geist-Schutz erhalten kann. 0 = kein Limit. Nur Mehrspieler; erneutes Verbinden nach einem Absturz zählt ebenfalls.",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes": "Zeitraum für Geist-Limit",
+    "Sandbox_MinidoracatSafeSpawn_NormalGhostWindowMinutes_tooltip": "Länge des Zeitraums für das Geist-Limit (Veteranen) in Minuten ECHTZEIT. 60 = pro Stunde.",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds": "Geistzeit (neue Charaktere)",
     "Sandbox_MinidoracatSafeSpawn_NewStartSeconds_tooltip": "Geistzeit für frisch erstellte Charaktere in Sekunden ECHTZEIT"
 }
