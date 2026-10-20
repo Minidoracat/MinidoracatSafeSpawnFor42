@@ -132,6 +132,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3653490664
 [*] The N in "Available again in about N min" is how long you have to wait; log in after that and you'll be protected again.
 [*] Reconnecting after a disconnect counts as a login and uses one up.
 [*] New characters and respawns after death aren't affected by this limit.
+[*] Your character still looks see-through: that's the game's own connection buffer, not this mod's protection. It clears as soon as you take a step, or about 15 seconds after logging in.
 [/list]
 [h3]Is a log message from this mod?[/h3]
 [list]
