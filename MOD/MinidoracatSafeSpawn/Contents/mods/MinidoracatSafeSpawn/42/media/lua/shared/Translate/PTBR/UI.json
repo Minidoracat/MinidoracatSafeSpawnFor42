@@ -1,7 +1,7 @@
 {
     "UI_ghost_time_count_down": "Proteção ao surgir: %1 s",
     "UI_over_ghost_time": "Proteção ao surgir encerrada",
-    "UI_ghost_limit_reached": "Limite de proteção ao surgir atingido. Disponível novamente em cerca de %1 min",
+    "UI_ghost_limit_reached": "Limite de proteção ao surgir atingido. Disponível novamente às %2 (em cerca de %1 min)",
     "UI_ghost_limit_left": "Proteções ao surgir restantes: %1 (+1 às %2)",
     "UI_admin_menu_title": "Ferramentas de admin do SafeSpawn",
     "UI_admin_ghost_enable": "Ativar invisibilidade",

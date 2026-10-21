@@ -1,7 +1,7 @@
 {
     "UI_ghost_time_count_down": "Doğma Koruması: %1 sn",
     "UI_over_ghost_time": "Doğma koruması sona erdi",
-    "UI_ghost_limit_reached": "Doğma koruması sınırına ulaşıldı. Yaklaşık %1 dk sonra tekrar kullanılabilir",
+    "UI_ghost_limit_reached": "Doğma koruması sınırına ulaşıldı. %2 itibarıyla tekrar kullanılabilir (yaklaşık %1 dk sonra)",
     "UI_ghost_limit_left": "Kalan doğma koruması: %1 (%2 itibarıyla +1)",
     "UI_admin_menu_title": "SafeSpawn Yönetici Araçları",
     "UI_admin_ghost_enable": "Görünmezliği Aç",

@@ -434,14 +434,18 @@ local function OnServerCommand(module, command, args)
                 .. ", refill in " .. tostring(args.refillSec) .. "s")
             return
         end
-        -- 拒：覆蓋層還沒寫過，只撤 OnTick（同「本來就隱形」那條路）。分鐘數由伺服器算，字在本機組：
-        -- 專用伺服器的 Translator 沒有 MOD 的鍵。
+        -- 拒：覆蓋層還沒寫過，只撤 OnTick（同「本來就隱形」那條路）。分鐘數與秒數由伺服器算，字在本機組：
+        -- 專用伺服器的 Translator 沒有 MOD 的鍵。1.7.0 和更早的伺服器不送 refillSec，改用分鐘數換算時鐘。
         spawnProtectActive = false
         reconcileGhostState(nil, false)
-        print("[MinidoracatSafeSpawn] Claim denied, wait " .. tostring(args.waitMinutes) .. " min")
+        print("[MinidoracatSafeSpawn] Claim denied, wait " .. tostring(args.waitMinutes) .. " min, refill in "
+            .. tostring(args.refillSec) .. "s")
         local player = getPlayer()
         if player then
-            pcall(function() player:setHaloNote(getText("UI_ghost_limit_reached", args.waitMinutes)) end)
+            pcall(function()
+                player:setHaloNote(getText("UI_ghost_limit_reached", args.waitMinutes,
+                    clockAfter(args.refillSec or args.waitMinutes * 60)))
+            end)
         end
         return
     end

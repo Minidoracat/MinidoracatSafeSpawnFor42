@@ -1,7 +1,7 @@
 {
     "UI_ghost_time_count_down": "Spawn-Schutz: %1 s",
     "UI_over_ghost_time": "Spawn-Schutz beendet",
-    "UI_ghost_limit_reached": "Spawn-Schutz-Limit erreicht. Wieder verfügbar in etwa %1 Min",
+    "UI_ghost_limit_reached": "Spawn-Schutz-Limit erreicht. Wieder verfügbar um %2 (in etwa %1 Min)",
     "UI_ghost_limit_left": "Spawn-Schutz übrig: %1 (+1 um %2)",
     "UI_admin_menu_title": "SafeSpawn Admin-Werkzeuge",
     "UI_admin_ghost_enable": "Unsichtbarkeit an",
