@@ -13,7 +13,8 @@ print("[MinidoracatSafeSpawn] Loading SafeSpawnServer.lua...")
 local CLAIMS = "MinidoracatSafeSpawn_NormalGhostClaims"
 
 --- 舊角色登入申請：時段內次數沒到上限就准並記下時間，到了就拒並回報還要等幾分鐘。
---- 只回數字，提示文字由 client 組：專用伺服器的 Translator 沒有 MOD 的鍵。
+--- 准許時附上還剩幾次、最舊一筆幾秒後過期（恢復 1 次），client 換成玩家電腦的時鐘顯示在倒數提示。
+--- 只回數字，提示文字由 client 組：專用伺服器的 Translator 沒有 MOD 的鍵，也不知道玩家的時區。
 local function onClaim(player)
     local vars = SandboxVars and SandboxVars.MinidoracatSafeSpawn
     local limit = vars and tonumber(vars.NormalGhostLimit) or 0
@@ -29,14 +30,17 @@ local function onClaim(player)
     end
     local mine = book[name] or {}
     local granted, waitMinutes = limit <= 0 or #mine < limit, 0
+    local left, refillSec
     if granted then
         mine[#mine + 1] = now
         book[name] = mine
+        if limit > 0 then left, refillSec = limit - #mine, mine[1] + windowSec - now end
     else  -- 等到時段內只剩 limit - 1 筆
         waitMinutes = math.max(1, math.ceil((mine[#mine - limit + 1] + windowSec - now) / 60))
     end
     ModData.add(CLAIMS, book)
-    sendServerCommand(player, "MinidoracatSafeSpawn", "claim", { granted = granted, waitMinutes = waitMinutes })
+    sendServerCommand(player, "MinidoracatSafeSpawn", "claim",
+        { granted = granted, waitMinutes = waitMinutes, left = left, refillSec = refillSec })
     print("[MinidoracatSafeSpawn] Server: claim " .. tostring(name) .. " " .. (granted and "granted" or "denied")
         .. " " .. #mine .. "/" .. limit .. (granted and "" or " wait=" .. waitMinutes .. "m"))
 end

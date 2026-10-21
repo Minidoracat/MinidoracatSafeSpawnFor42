@@ -2,6 +2,7 @@
     "UI_ghost_time_count_down": "隐身保护: 剩余 %1 秒",
     "UI_over_ghost_time": "隐身保护已结束",
     "UI_ghost_limit_reached": "登入保护次数已用完，约 %1 分钟后恢复",
+    "UI_ghost_limit_left": "登入保护剩余 %1 次，%2 恢复 1 次",
     "UI_admin_menu_title": "SafeSpawn 管理工具",
     "UI_admin_ghost_enable": "开启隐形模式",
     "UI_admin_ghost_disable": "关闭隐形模式",

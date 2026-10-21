@@ -2,6 +2,7 @@
     "UI_ghost_time_count_down": "Ochrona przy pojawieniu: %1 s",
     "UI_over_ghost_time": "Ochrona przy pojawieniu zakończona",
     "UI_ghost_limit_reached": "Wykorzystano limit ochrony przy pojawieniu. Ponownie dostępna za około %1 min",
+    "UI_ghost_limit_left": "Pozostałe ochrony przy pojawieniu: %1 (+1 o %2)",
     "UI_admin_menu_title": "Narzędzia admina SafeSpawn",
     "UI_admin_ghost_enable": "Włącz niewidzialność",
     "UI_admin_ghost_disable": "Wyłącz niewidzialność",

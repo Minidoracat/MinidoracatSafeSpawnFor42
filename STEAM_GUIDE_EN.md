@@ -25,7 +25,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3653490664
 [*] [b]Start[/b]: turns on automatically when you log in (load a save or join a server) and when you respawn as a new character after dying. It does not turn on if "Enable Ghost on Spawn" is off.
 [*] [b]End[/b]: ends automatically when the countdown reaches 0; "Spawn protection ended" appears overhead and the transparency goes away.
 [*] [b]Death[/b]: dying clears all protection state, and your new character gets a fresh protection period.
-[*] [b]Limit[/b]: the server owner can limit how many times a returning character gets login protection within a set period (multiplayer only; no limit by default). Once the limit is used up, you get no protection for that login and "Spawn protection limit reached. Available again in about N min" appears overhead. New characters and respawns after death aren't affected.
+[*] [b]Limit[/b]: the server owner can limit how many times a returning character gets login protection within a set period (multiplayer only; no limit by default). When a login does get protection, the countdown text gets a second line, "Spawn protection uses left: X (+1 at HH:MM)", where HH:MM is the time on your computer's clock. Once the limit is used up, you get no protection for that login and "Spawn protection limit reached. Available again in about N min" appears overhead. New characters and respawns after death aren't affected.
 [*] [b]Already invisible[/b]: if your character is already invisible when you log in or respawn (for example, an admin turned it on in the vanilla admin panel) and your role is allowed to be invisible, protection doesn't start and there's no countdown. Your invisibility stays as it is, with a one-time "Invisibility ENABLED" note overhead.
 [/list]
 [h3]New vs. returning characters[/h3]
@@ -49,7 +49,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3653490664
 [/list]
 [h3]Countdown hints[/h3]
 [list]
-[*] [b]Overhead text[/b]: shows "Spawn Protection: Ns" every 10 seconds, then every second for the last 5.
+[*] [b]Overhead text[/b]: shows "Spawn Protection: Ns" as soon as protection starts, then every 10 seconds, then every second for the last 5. If the server owner set a limit, a second line shows the uses left and when one comes back (see "Limit").
 [*] [b]Silent[/b]: it's text only; your character doesn't speak, so no sound attracts zombies.
 [/list]
 [h3]Semi-transparency[/h3]

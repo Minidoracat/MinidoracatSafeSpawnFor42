@@ -2,6 +2,7 @@
     "UI_ghost_time_count_down": "Spawn Protection: %1s",
     "UI_over_ghost_time": "Spawn protection ended",
     "UI_ghost_limit_reached": "Spawn protection limit reached. Available again in about %1 min",
+    "UI_ghost_limit_left": "Spawn protection uses left: %1 (+1 at %2)",
     "UI_admin_menu_title": "SafeSpawn Admin Tools",
     "UI_admin_ghost_enable": "Enable Invisibility",
     "UI_admin_ghost_disable": "Disable Invisibility",

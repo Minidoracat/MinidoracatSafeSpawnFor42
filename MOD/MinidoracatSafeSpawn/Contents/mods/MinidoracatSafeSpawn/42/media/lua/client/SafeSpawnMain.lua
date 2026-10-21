@@ -47,6 +47,17 @@ local function hasInvisibleCapability(player)
     return role ~= nil and role:hasCapability(Capability.ToggleInvisibleHimself)
 end
 
+--- 現在起 sec 秒後，玩家電腦時鐘上的時間（HH:MM），進位到整分：顯示的時間到了就一定已經恢復。
+--- 本機時區從 getHourMinute() 拿（Calendar.getInstance()，LuaManager.java:1571-1577）；Kahlua 的 os.date
+--- 固定用 UTC（OsLib.java:331）。秒數取 getTimestamp()：時區偏移都是整分，秒位跟本機相同。
+--- @param sec number
+--- @return string
+local function clockAfter(sec)
+    local h, m = getHourMinute():match("^(%d+):(%d+)$")
+    local mins = (tonumber(h) * 60 + tonumber(m) + math.ceil((getTimestamp() % 60 + sec) / 60)) % 1440
+    return string.format("%02d:%02d", math.floor(mins / 60), mins % 60)
+end
+
 -- ============================================================================
 -- Global Variables
 -- ============================================================================
@@ -59,6 +70,7 @@ local invisChecked = nil  -- forced setInvisible 生效性哨兵（nil = 尚未�
 local NEW_CHAR_HOURS = 0.1  -- 存活未滿 0.1 遊戲小時（6 遊戲分鐘）視為新角色
 local needClaim = false  -- 這次是舊角色登入：過了握手閘門要先向伺服器申請（沙盒 NormalGhostLimit）
 local claimWait = false  -- 已送申請、等伺服器回覆：期間不寫旗標、不倒數（回覆見 OnServerCommand）
+local limitNote = nil  -- 倒數提示第二行：剩餘次數與恢復時間（伺服器准了舊角色申請才有，見 OnServerCommand）
 newGhostTime = 60  -- 新角色保護秒數（現實時間）
 oldGhostTime = 30  -- 老角色保護秒數（現實時間）
 enterGhost = false  -- 本機覆蓋層是否作用中（與 spawnProtectActive 同步；E2E 情境讀它）
@@ -220,10 +232,13 @@ OnGhostTick = function(numberTicks)
     end
     local remaining = math.ceil((ghostEndMs - now) / 1000)
     if remaining ~= lastShownSecond then
+        local first = lastShownSecond == nil
         lastShownSecond = remaining
-        -- 每 10 秒提示一次，最後 5 秒逐秒倒數，避免 halo 洗版
-        if not adminGhostToggle and (remaining <= 5 or remaining % 10 == 0) then
-            pcall(function() curPlayer:setHaloNote(getText("UI_ghost_time_count_down", remaining)) end)
+        -- 起算時、每 10 秒提示一次，最後 5 秒逐秒倒數，避免 halo 洗版；有次數上限時多一行剩餘次數（[br/] 換行）
+        if not adminGhostToggle and (first or remaining <= 5 or remaining % 10 == 0) then
+            local text = getText("UI_ghost_time_count_down", remaining)
+            if limitNote then text = text .. "[br/]" .. limitNote end
+            pcall(function() curPlayer:setHaloNote(text) end)
         end
     end
 
@@ -317,6 +332,7 @@ enableProtection = function(player)
     needClaim = isClient() and hoursSurvived >= NEW_CHAR_HOURS
         and getSandboxVar("NormalGhostLimit", 0) > 0
     claimWait = false
+    limitNote = nil
     -- 截止時間刻意不在此計算：OnGhostTick 過了握手閘門才起算，避免把載入/握手時間吃進保護，
     -- 也確保 forced 旗標絕不在連線快照前寫入（見 OnGhostTick 覆蓋層的安全邊界 1）
     ghostEndMs = nil
@@ -407,7 +423,15 @@ local function OnServerCommand(module, command, args)
         if not claimWait or type(args) ~= "table" then return end
         claimWait = false
         if args.granted then  -- 准：下一個 OnGhostTick 照常起算倒數
-            print("[MinidoracatSafeSpawn] Claim granted")
+            -- 恢復時間在本機換成時鐘：伺服器不知道玩家的時區。算不出來也照常保護，只是少一行提示。
+            if args.left then
+                local ok, note = pcall(function()
+                    return getText("UI_ghost_limit_left", args.left, clockAfter(args.refillSec))
+                end)
+                limitNote = ok and note or nil
+            end
+            print("[MinidoracatSafeSpawn] Claim granted, left " .. tostring(args.left)
+                .. ", refill in " .. tostring(args.refillSec) .. "s")
             return
         end
         -- 拒：覆蓋層還沒寫過，只撤 OnTick（同「本來就隱形」那條路）。分鐘數由伺服器算，字在本機組：
