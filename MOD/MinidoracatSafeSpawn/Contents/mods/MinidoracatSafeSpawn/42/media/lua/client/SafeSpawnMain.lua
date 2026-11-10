@@ -38,7 +38,7 @@ end
 
 --- 有沒有隱形權限（ToggleInvisibleHimself）：管理員選單與「本來就隱形就不跑保護」共用。
 --- 單機沒有 role：Roles 只在伺服器初始化，IsoPlayer.role 取 Roles.getDefaultForNewUser() 是 nil
---- （IsoPlayer.java:330、Roles.java:95-97，42.21.0）。nil 要自己判，不能靠外層 pcall：Kahlua 在 pcall
+--- （IsoPlayer.java:332、Roles.java:95-97，42.22.2）。nil 要自己判，不能靠外層 pcall：Kahlua 在 pcall
 --- 接住之前就把錯誤記進錯誤清單（KahluaThread.java:894-897），玩家右下角照樣看到報錯。
 --- @param player IsoPlayer
 --- @return boolean
@@ -48,7 +48,7 @@ local function hasInvisibleCapability(player)
 end
 
 --- 現在起 sec 秒後，玩家電腦時鐘上的時間（HH:MM），進位到整分：顯示的時間到了就一定已經恢復。
---- 本機時區從 getHourMinute() 拿（Calendar.getInstance()，LuaManager.java:1571-1577）；Kahlua 的 os.date
+--- 本機時區從 getHourMinute() 拿（Calendar.getInstance()，LuaManager.java:1572-1578）；Kahlua 的 os.date
 --- 固定用 UTC（OsLib.java:331）。秒數取 getTimestamp()：時區偏移都是整分，秒位跟本機相同。
 --- @param sec number
 --- @return string
@@ -183,7 +183,7 @@ OnGhostTick = function(numberTicks)
     if not curPlayer then return end
 
     -- 握手閘門：重生時 OnNewGame 之後，新角色要等 AddCoopPlayer 跟伺服器往返完才放進
-    -- IsoPlayer.players[]（42.21.0 AddCoopPlayer.java:142-153），這段期間 getPlayer() 已是新角色、
+    -- IsoPlayer.players[]（42.22.2 AddCoopPlayer.java:142-153），這段期間 getPlayer() 已是新角色、
     -- OnTick 照跑，而 SendPlayerConnect 會快照旗標上傳（見下方覆蓋層的安全邊界 1）。
     -- 角色進入世界前一律不動作，倒數也不起算。
     if getSpecificPlayer(curPlayer:getPlayerNum()) ~= curPlayer then return end
@@ -210,7 +210,7 @@ OnGhostTick = function(numberTicks)
         if needClaim then
             -- 舊角色登入要伺服器准了才保護（一段時間內的次數上限）。過了握手閘門才送：OnGameStart 時
             -- GameClient.ingame 還是 false，sendClientCommand 走單機虛擬連線，專用伺服器收不到
-            -- （LuaManager.java:8936-8948）。
+            -- （LuaManager.java:8872-8884）。
             needClaim = false
             claimWait = true
             sendClientCommand(curPlayer, "MinidoracatSafeSpawn", "claim", {})
@@ -246,7 +246,7 @@ OnGhostTick = function(numberTicks)
     -- setGhostMode 是 setInvisible 的別名（同一 CheatType.INVISIBLE 旗標）。單參數版受 role capability 管制，
     -- 沒有 ToggleInvisibleHimself 的人寫不進去；兩參數 forced 版繞過檢查、只寫本機旗標。殭屍 AI 在
     -- 「殭屍擁有權 client」執行（NetworkZombieManager.canSpotted），登入點附近的殭屍通常由本玩家 client 模擬：
-    -- ghost 玩家不被發現、已鎖定的目標被清掉、不會被攻擊（42.21.0 IsoZombie.java:868、1100、2070），
+    -- ghost 玩家不被發現、已鎖定的目標被清掉、不會被攻擊（42.22.2 IsoZombie.java:870、1102、2072），
     -- DoFootstepSound 也不再發出吸引殭屍的聲音。
     -- 安全邊界（缺一不可）：
     -- 1. 遊戲進行中本機旗標不會上傳（PlayerPacket 不含 cheat flags），但連線握手的快照「會」帶
@@ -254,8 +254,9 @@ OnGhostTick = function(numberTicks)
     --    登入是 ConnectPacket（OnGameStart/OnNewGame 在 sendPlayerConnect 之前同步觸發，IngameState.enter），
     --    重生是 ConnectCoopPacket stage 2（AddCoopPlayer 跨好幾個 frame 等伺服器回覆，期間 OnTick 照跑）。
     --    此時寫入＝其他玩家整場看不到本玩家，保護結束也不會恢復。所以只在握手閘門之後寫。
-    -- 2. 不碰伺服器端旗標：伺服器端隱形的玩家，移動不會轉給一般玩家（PlayerPacket.java:192），
-    --    其他人看到的是定在原地的人，而且會存進角色檔。保護只在本機生效，其他玩家始終看得到受保護的人。
+    -- 2. 不碰伺服器端旗標：伺服器端隱形的玩家，移動不會轉給一般玩家（PlayerPacket.java:210），
+    --    其他人的遊戲 5 秒收不到他的更新就把他移除（GameClient.java:512-522；42.21 以前是看到他定在原地），
+    --    而且會存進角色檔。保護只在本機生效，其他玩家始終看得到受保護的人。
     -- 3. 單機（無 -debug）時 PlayerCheats.isCheatAllowed 擋掉所有 cheat 旗標寫入，
     --    覆蓋層是 no-op，保護只剩下方的殭屍目標清除。
     pcall(function() curPlayer:setInvisible(true, true) end)

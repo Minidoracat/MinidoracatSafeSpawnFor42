@@ -9,7 +9,7 @@ print("[MinidoracatSafeSpawn] Loading SafeSpawnServer.lua...")
 
 -- 帳號 → 計算時段內每次准許的時間（getTimestamp()，伺服器時鐘的秒，舊的在前）。Global ModData 由引擎
 -- 跟世界一起存讀：開服 IsoWorld.init 讀回，定期存檔／save／正常關服的 ServerMap.QueuedSaveAll 寫入
--- （ServerMap.java:409）。當機時上次存檔之後的紀錄會遺失。
+-- （ServerMap.java:411）。當機時上次存檔之後的紀錄會遺失。
 local CLAIMS = "MinidoracatSafeSpawn_NormalGhostClaims"
 
 --- 舊角色登入申請：時段內次數沒到上限就准並記下時間，到了就拒並回報還要等幾分鐘。
